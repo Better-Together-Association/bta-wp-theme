@@ -83,3 +83,11 @@ function bta_eventbrite_embed_shortcode( $atts ) {
 
 add_shortcode( 'bta_eventbrite_embed', 'bta_eventbrite_embed_shortcode' );
 
+// Custom Queries
+
+// Show posts that match page slug name
+add_action( 'elementor/query/programming_past', function( $query ) {
+	global $post;
+    $post_slug = $post->post_name;
+	$query->set( 'tag', $post_slug );
+} );
