@@ -92,6 +92,14 @@ add_action( 'elementor/query/programming_past', function( $query ) {
 	$query->set( 'tag', $post_slug );
 } );
 
+// Showing children of current page in Posts Widget
+add_action( 'elementor_pro/posts/query/child_posts', function( $query ) {
+	// Get current post tags
+	$current_page = get_queried_object_id();
+	// Modify the query
+	$query->set( 'post_parent', $current_page );
+} );
+
 
 add_filter( 'login_url', 'bta_custom_login_url', 10, 3 );
 /**
