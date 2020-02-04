@@ -21,6 +21,9 @@ add_filter( 'login_url', 'bta_custom_login_url', 10, 3 );
  * @return string
  */
 function bta_custom_login_url( $login_url, $redirect, $force_reauth ){
+    
+    if( is_admin() ) return $url;
+
     $login_url = site_url( '/login/', 'login' );
     if ( ! empty( $redirect ) ) {
         $login_url = add_query_arg( 'redirect_to', urlencode( $redirect ), $login_url );
