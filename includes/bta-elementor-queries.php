@@ -7,10 +7,10 @@
 
 
 /**
- * programming_past query
+ * slug_tag query
  * Take the current page slug and query all posts with the same tag
  */
-add_action( 'elementor/query/programming_past', function( $query ) {
+add_action( 'elementor/query/slug_tag', function( $query ) {
 	global $post;
     $post_slug = $post->post_name;
 	$query->set( 'tag', $post_slug );
